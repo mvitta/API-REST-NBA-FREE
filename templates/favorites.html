@@ -1,0 +1,61 @@
+{% extends 'base/base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    {% block content %}
+    <section class="container-favorites">
+      <table class="table-teams">
+        <caption>
+          Favorites Teams
+        </caption>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Abbreviation</th>
+            <th>City</th>
+            <th>Conference</th>
+            <th>Division</th>
+            <th>Full Name</th>
+            <th>Name</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for team in records %}
+          <tr>
+            <td>{{team[0]}}</td>
+            <td>{{team[1]}}</td>
+            <td>{{team[2]}}</td>
+            <td>{{team[3]}}</td>
+            <td>{{team[4]}}</td>
+            <td>{{team[5]}}</td>
+            <td>{{team[6]}}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      <form action="{{ url_for('favorites') }}" method="POST">
+        <div class="section-btn-favorites">
+          <button type="submit" name="btn" id="btn" value="desc">
+            Desc by ID
+          </button>
+          <button type="submit" name="btn" id="btn-" value="ascByCity">
+            Asc By City
+          </button>
+          <button type="submit" name="btn" id="btn-" value="byConference">
+            By conference
+          </button>
+          <button type="submit" name="btn" id="btn-" value="byDivision">
+            By Division
+          </button>
+        </div>
+      </form>
+      {% endblock %}
+    </section>
+  </body>
+</html>

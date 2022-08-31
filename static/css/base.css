@@ -1,0 +1,326 @@
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 17px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+nav {
+    background: #cfcfcf;
+    width: 100%
+}
+
+h1 {
+    line-height: 20px;
+    font-family: mononoki;
+    font-weight: bold;
+    word-spacing: 0.5rem;
+    letter-spacing: 0.1rem;
+    text-decoration: underline;
+    text-align: center;
+    padding: 1rem;
+}
+
+.title-page {
+    width: auto;
+    background-color: #0a1a2a;
+    color: rgb(255, 255, 255);
+}
+
+label {
+    font-weight: bold;
+    color: #000000;
+
+}
+
+input {
+    outline: none;
+    width: 90%;
+}
+
+li {
+    list-style: none;
+    padding-top: 0.5rem;
+    padding-left: 1rem;
+}
+
+
+li::before {
+    color: brown;
+    padding: 0.3rem;
+}
+
+a:hover {
+    font-weight: bold;
+    transition: color 0.5s;
+    color: aqua;
+}
+
+a {
+    color: black;
+}
+
+form {
+    padding: 0.5rem;
+}
+
+table {
+    border: 1px solid black;
+    padding: 1rem;
+    /* Arriba | Derecha | Abajo | Izquierda */
+    margin: 2rem auto 2rem auto;
+    text-align: center;
+}
+
+caption {
+    color: rgb(22, 19, 19);
+    font-size: 1.5rem;
+    margin: 1rem;
+    font-weight: 800;
+}
+
+
+thead {
+    background: #0a1a2a;
+}
+
+th {
+    text-decoration: underline;
+    padding: 0.5rem;
+    color: rgb(255, 255, 255);
+}
+
+td {
+    padding: 0.5rem;
+}
+
+.container {
+    width: 100%;
+}
+
+.container-teams {
+    /* Arriba | Derecha | Abajo | Izquierda */
+    margin: 0 auto 2rem auto;
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    overflow: auto;
+    border: 1px solid black;
+    padding: 1rem;
+    min-width: 300px;
+
+}
+
+.section-button-favorite {
+    display: flex;
+    row-gap: .5rem;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    padding-right: 1rem;
+}
+
+/* button {
+    background: #0a1a2a;
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 10px;
+    padding: .6rem;
+} */
+
+/* Author: Steven Lei, December 18, 2020 */
+button, button::after {
+    font-family: 'Bebas Neue', cursive;
+    background: linear-gradient(45deg, transparent 5%, #0a1a2a 5%);
+    border: 0;
+    color: #fff;
+    letter-spacing: 3px;
+    box-shadow: 6px 0px 0px #00E6F6;
+    outline: transparent;
+    position: relative;
+    padding: 0.5rem;
+}
+
+button::after {
+    --slice-0: inset(50% 50% 50% 50%);
+    --slice-1: inset(80% -6px 0 0);
+    --slice-2: inset(50% -6px 30% 0);
+    --slice-3: inset(10% -6px 85% 0);
+    --slice-4: inset(40% -6px 43% 0);
+    --slice-5: inset(80% -6px 5% 0);
+
+    content: 'AVAILABLE NOW';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent 3%, #00E6F6 3%, #00E6F6 5%, #0a1a2a 5%);
+    text-shadow: -3px -3px 0px #F8F005, 3px 3px 0px #00E6F6;
+    clip-path: var(--slice-0);
+}
+
+button:hover::after {
+    animation: 1s glitch;
+    animation-timing-function: steps(2, end);
+}
+
+@keyframes glitch {
+    0% {
+        clip-path: var(--slice-1);
+        transform: translate(-20px, -10px);
+    }
+
+    10% {
+        clip-path: var(--slice-3);
+        transform: translate(10px, 10px);
+    }
+
+    20% {
+        clip-path: var(--slice-1);
+        transform: translate(-10px, 10px);
+    }
+
+    30% {
+        clip-path: var(--slice-3);
+        transform: translate(0px, 5px);
+    }
+
+    40% {
+        clip-path: var(--slice-2);
+        transform: translate(-5px, 0px);
+    }
+
+    50% {
+        clip-path: var(--slice-3);
+        transform: translate(5px, 0px);
+    }
+
+    60% {
+        clip-path: var(--slice-4);
+        transform: translate(5px, 10px);
+    }
+
+    70% {
+        clip-path: var(--slice-2);
+        transform: translate(-10px, 10px);
+    }
+
+    80% {
+        clip-path: var(--slice-5);
+        transform: translate(20px, -10px);
+    }
+
+    90% {
+        clip-path: var(--slice-1);
+        transform: translate(-10px, 0px);
+    }
+
+    100% {
+        clip-path: var(--slice-1);
+        transform: translate(0);
+    }
+}
+
+button:hover {
+    font-weight: bold;
+    background: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+}
+
+.team-card {
+    display: flex;
+    flex-direction: column;
+    min-width: 15rem;
+    border: 1px solid black;
+    border-radius: 10px;
+    box-shadow: -10px 5px 10px gray;
+    width: 15rem;
+    height: 30rem;
+}
+
+.section-messages {
+    width: auto;
+    height: auto;
+    font-size: .5rem;
+    color: rgba(64, 64, 209, 0.603);
+    margin: .5rem;
+    text-align: right;
+}
+
+.container-favorites {
+    overflow: auto;
+    scroll-behavior: auto;
+    scrollbar-color: blue;
+}
+
+.full-name {
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    text-decoration: underline;
+    text-align: center;
+    padding: 0.5rem 0 0.5rem 0;
+}
+
+.abbreviation-team,
+.city-team,
+.conference-team,
+.division-team, .id-team, .name-team, ._full-name {
+    font-weight: bold;
+    padding: 0 0.5rem 0 0.5rem;
+}
+
+.error-data {
+    color: black;
+    font-weight: bold;
+    font-size: 2rem;
+    text-decoration: none;
+}
+
+.header {
+    width: auto;
+    min-width: 300px;
+    height: 5rem;
+    border-bottom: 1px solid black;
+}
+
+.header-nav {
+    width: auto;
+    height: auto;
+    padding: 1rem;
+}
+
+.header-nav-ul {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.input-text-allTeams {
+    border: none;
+    background: rgb(255, 255, 255);
+    font-size: inherit;
+    font-family: inherit;
+    margin-bottom: .5rem;
+}
+
+.section-btn-favorites{
+    margin: 0 auto 2rem auto;
+    padding: 1rem;
+    width: auto;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+}

@@ -1,0 +1,44 @@
+{% extends 'base/base.html' %} {% block content %}
+
+
+  <section class="section-info-api">
+
+    <div class="title-section-info-api">
+      <h1>API Information</h1>
+    </div>
+
+    <div class="information-section-info-api">
+      <p>
+        visit the following page to learn about the NBA FREE API and many more.
+      </p>
+      <ul>
+        <li>
+          <a href="https://rapidapi.com/theapiguy/api/free-nba/"
+            >https://rapidapi.com/theapiguy/api/free-nba/</a
+          >
+        </li>
+      </ul>
+    </div>
+
+    <div class="images-section-info-api">
+      <figure>
+        <figcaption>Api Free Nba</figcaption>
+        <img
+          src="{{ url_for('static', filename = 'images/freeNba.avif')}}"
+          alt="free-nba"
+        />
+      </figure>
+      <figure>
+        <figcaption>Api Free Nba</figcaption>
+        <img
+          src="{{ url_for('static', filename = 'images/freeNba.avif')}}"
+          alt="free-nba"
+        />
+      </figure>
+    </div>
+
+    <!-- traer el logo de la api y otras cosas -->
+
+  </section>
+
+{% endblock %}

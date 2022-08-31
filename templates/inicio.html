@@ -1,0 +1,107 @@
+{% extends 'base/base.html' %}
+
+{% block content %} 
+{% if teams %}
+<section class="container-teams">
+  {% for team in teams %}
+  <div class="team-card" id="team-{{ team['id'] }}">
+    <form
+      action="{{ url_for('index') }}"
+      method="POST"
+      class="form"
+      id="form-team-{{ team['full_name'] }}"
+      
+    >
+      <div class="id-team">
+        <label for="">Code: </label><br>
+        <input
+          type="text"
+          value="{{ team['id'] }}"
+          name="code"
+          class="input-text-allTeams"
+          
+        />
+      </div>
+      <div class="abbreviation-team">
+        <label for="">Abbreviation: </label><br>
+        <input
+          type="text"
+          value="{{ team['abbreviation'] }}"
+          name="abreviacion"
+          class="input-text-allTeams"
+        />
+      </div>
+
+      <div class="city-team">
+        <label for="">City: </label><br>
+        <input
+          type="text"
+          value="{{ team['city'] }}"
+          name="city"
+          class="input-text-allTeams"
+        />
+      </div>
+      <div class="conference-team">
+        <label for="">Conference: </label><br>
+        <input
+          type="text"
+          value="{{ team['conference'] }}"
+          name="conference"
+          class="input-text-allTeams"
+        />
+      </div>
+      <div class="division-team">
+        <label for="">Division: </label><br>
+        <input
+          type="text"
+          value="{{ team['division'] }}"
+          name="division"
+          class="input-text-allTeams"
+        />
+      </div>
+      <div class="_full-name">
+        <label for="">Full Name: </label><br>
+        <input
+          type="text"
+          value="{{ team['full_name'] }}"
+          name="full_name"
+          class="input-text-allTeams"
+        />
+      </div>
+      <div class="name-team">
+        <label for="">Name: </label><br>
+        <input
+          type="text"
+          value="{{ team['name'] }}"
+          name="name"
+          class="input-text-allTeams"
+        />
+      </div>
+      <div class="section-button-favorite">
+        <button class="btn" value="{{ team['id'] }}" name="btn-favorite">Favorite</button>
+        <button class="btn" value="{{ team['id'] }}" name="btn-delete">Delete Favorite</button>
+      </div>
+    </form>
+
+    <!-- verifica que el id de la clase donde va el mensaje coincida con el 
+    dato que se intenta ingresar en la db -->
+    
+    {% with message = get_flashed_messages() %}
+    {% if message %}
+    {% if dataPage[0] == team['id'] %}
+    <section class="section-messages-{{ teams[0]['id'] }} section-messages">
+      <h2>{{ message[0] }}</h2>
+    </section>
+    {% endif %}
+    {% endif %}
+    {% endwith %}
+  </div>
+  {% endfor %}
+  {% endif %}
+  {% if not teams %}
+  <h1 class="error-data">
+    {% with messages = get_flashed_messages() %} {{ messages }} {% endwith %}
+  </h1>
+{% endif %}
+{% endblock %}
+</section>
